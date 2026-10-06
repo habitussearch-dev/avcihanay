@@ -76,6 +76,14 @@ details p{color:var(--mute);margin-top:12px;max-width:720px}
 .chk input{width:auto;margin-top:4px;accent-color:var(--acc)}
 .sticky{display:none}
 @media(max-width:720px){.sticky{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.5)}body{padding-bottom:80px}.trust div{border-right:0;border-bottom:1px solid var(--line)}}
+#splash{position:fixed;inset:0;height:100dvh;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;animation:sp .6s ease 1.9s forwards}
+#splash .sn{font:400 clamp(26px,6vw,38px) Fraunces,serif;letter-spacing:.02em;opacity:0;animation:fi .7s ease .9s forwards;margin-top:14px}
+#splash .ss{font:500 11px Inter,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);opacity:0;animation:fi .7s ease 1.1s forwards}
+.dr{stroke-dasharray:1;stroke-dashoffset:1;animation:dr .9s ease forwards}.d2{animation-delay:.25s}.d3{animation-delay:.55s}.d4{animation-delay:.7s}
+.pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:pp .4s ease .85s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}@keyframes fi{to{opacity:1}}@keyframes pp{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@keyframes sp{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){#splash{animation-delay:.6s}.dr{animation:none;stroke-dashoffset:0}.pop,#splash .sn,#splash .ss{animation:none;opacity:1}}
 footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .rv{opacity:0;transform:translateY(22px);transition:all .7s ease}.rv.on{opacity:1;transform:none}
 @media(max-width:720px){.row{grid-template-columns:40px 1fr}.row p{grid-column:2}nav a:not(.pill){display:none}.btn.ghost{margin:12px 0 0}.hero::after{opacity:.35}}
@@ -83,7 +91,16 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute"><symbol id="logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="var(--line)" stroke-width="1"/><path d="M36 14.5A15 15 0 1 0 36 33.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M17 35 24 12 31 35" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M13 22H35" stroke="var(--acc)" stroke-width="2.4" stroke-linecap="round" transform="rotate(-6 24 22)"/><circle cx="24" cy="11" r="2.6" fill="var(--acc)"/></symbol></svg>
+<div id="splash" aria-hidden="true"><svg viewBox="0 0 48 48" width="132" height="132" style="color:var(--fg)"><path d="M7 44V22a17 17 0 0 1 34 0v22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" pathLength="1" class="dr"/>
+<path d="M17 38 24 13 31 38" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" pathLength="1" class="dr d2"/>
+<path d="M13.5 24.5 34.5 21.5" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round" pathLength="1" class="dr d3"/>
+<circle class="pop" cx="13.5" cy="24.5" r="2.3" fill="var(--acc)"/><circle class="pop" cx="34.5" cy="21.5" r="2.3" fill="var(--acc)"/><circle class="pop" cx="24" cy="9.5" r="2.4" fill="var(--acc)"/>
+<path d="M4 44.5H44" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round" pathLength="1" class="dr d4"/></svg><div class="sn">Av. Cihan Ay</div><div class="ss">Hukuk &amp; Danışmanlık</div></div>
+<svg width="0" height="0" style="position:absolute"><symbol id="logo" viewBox="0 0 48 48"><path d="M7 44V22a17 17 0 0 1 34 0v22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M17 38 24 13 31 38" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M13.5 24.5 34.5 21.5" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round" />
+<circle cx="13.5" cy="24.5" r="2.3" fill="var(--acc)"/><circle cx="34.5" cy="21.5" r="2.3" fill="var(--acc)"/><circle cx="24" cy="9.5" r="2.4" fill="var(--acc)"/>
+<path d="M4 44.5H44" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round" /></symbol></svg>
 
 <div class="wrap">
 <header>
