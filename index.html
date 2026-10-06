@@ -61,7 +61,7 @@ h2{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em;margin-bottom:36px;max-w
 .form input,.form select,.form textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;width:100%}
 .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
 .form .btn{border:0;cursor:pointer;justify-self:start;font-family:inherit}
-#st{font-size:14px;min-height:20px}.note{font-size:12px;color:var(--mute)}
+#st{font-size:14px;min-height:20px}.ai{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:12px;padding:20px 22px;font-size:15px}.ai small{display:block;color:var(--mute);font-size:12px;margin-top:12px}.ai .nx{margin-top:12px;color:var(--fg)}.note{font-size:12px;color:var(--mute)}
 .trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-bottom:1px solid var(--line)}
 .trust div{padding:22px 24px;border-right:1px solid var(--line);font-size:14px;color:var(--mute)}
 .trust b{display:block;color:var(--fg);font:400 19px Fraunces,serif;margin-bottom:2px}
@@ -183,10 +183,11 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 <label>Hukuki konu<select name="topic" id="tp"><option>Emin değilim, yönlendirin</option><option>Ceza davası</option><option>Boşanma, velayet, nafaka</option><option>Aile hukuku (diğer)</option><option>İşçi alacakları, tazminat, işe iade</option><option>İşveren / iş hukuku danışmanlığı</option><option>Tapu, gayrimenkul, kamulaştırma</option><option>Kira ve tahliye</option><option>Miras, tereke, vasiyet</option><option>Tazminat davası</option><option>Trafik kazası, sigorta</option><option>İcra ve iflas, alacak takibi</option><option>Ticaret hukuku, şirket, sözleşme</option><option>Tüketici hukuku</option><option>İdare ve vergi hukuku</option><option>Bilişim, sosyal medya, kişisel veri</option><option>Yabancılar, oturma izni, vatandaşlık</option><option>Sağlık hukuku, malpraktis</option><option>International / English consultation</option><option>Diğer</option></select></label></div>
 <label>Aciliyet<select name="urgency"><option>Acil değil, bilgi almak istiyorum</option><option>Bu hafta görüşmek istiyorum</option><option>Acil, süreli bir işlem var</option></select></label>
 <label>Mesajınız<textarea name="message" rows="5" required placeholder="Durumunuzu kısaca anlatın. Türkçe veya İngilizce yazabilirsiniz."></textarea></label>
-<label class="chk"><input type="checkbox" name="kvkk" required><span>Bilgilerimin yalnızca talebime dönüş yapmak amacıyla işlenmesini kabul ediyorum (KVKK).</span></label>
+<label class="chk"><input type="checkbox" name="kvkk" required><span>Mesajımın bana dönüş yapmak ve otomatik ön bilgi üretmek amacıyla işlenmesini (yapay zekâ destekli sistem dahil) kabul ediyorum (KVKK).</span></label>
 <button class="btn" type="submit" id="sb">Gönder</button>
 <p id="st" role="status"></p>
-<p class="note">Mesajınız gizli tutulur. Bu form avukat-müvekkil ilişkisi kurmaz; ilişki yazılı sözleşme ile başlar.</p>
+<div id="ai" class="ai" hidden></div>
+<p class="note">Lütfen TC kimlik no, tam adres gibi kişisel verileri yazmayın. Mesajınız gizli tutulur. Bu form avukat-müvekkil ilişkisi kurmaz; ilişki yazılı sözleşme ile başlar.</p>
 </form>
 </section>
 
@@ -200,14 +201,26 @@ const sp=document.getElementById('splash');sp.addEventListener('click',()=>sp.cl
 const f=document.getElementById('cf'),st=document.getElementById('st'),sb=document.getElementById('sb');
 f.addEventListener('submit',async ev=>{
 ev.preventDefault();sb.disabled=true;st.style.color='var(--mute)';st.textContent='Gönderiliyor…';
-const d=new FormData(f);
+const d=new FormData(f);const q={topic:d.get('topic'),urgency:d.get('urgency'),message:d.get('message')};
 try{
 const r=await fetch('https://formsubmit.co/ajax/av.cihanay@hotmail.com',{method:'POST',headers:{Accept:'application/json'},body:d});
 const j=await r.json();
 if(!r.ok||j.success==='false')throw 0;
-f.reset();st.style.color='var(--acc)';st.textContent='Teşekkürler, mesajınız ulaştı. En kısa sürede dönüş yapacağım.';
+f.reset();st.style.color='var(--acc)';st.textContent='Teşekkürler, mesajınız ulaştı. En kısa sürede dönüş yapacağım.';askAI(q);
 }catch(e){st.style.color='#ff8a8a';st.textContent='Mesaj şu an gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.';}
 sb.disabled=false;});
+
+const AI_URL='https://avcihanai.av-cihanay.workers.dev/';
+const NEXT='Daha ayrıntılı değerlendirme için vekâlet verilmesi gerekir. Görüşme için e-posta üzerinden randevu talep edebilirsiniz; formda yazdığınız e-posta adresine dönüş yapılacaktır.';
+async function askAI(q){
+const box=document.getElementById('ai');box.hidden=false;
+const show=(t)=>{box.innerHTML='';if(t){const p=document.createElement('p');p.textContent=t;box.appendChild(p)}
+const n=document.createElement('p');n.className='nx';n.textContent=NEXT;box.appendChild(n);
+const m=document.createElement('small');m.textContent='Bu otomatik yanıt genel bilgidir; hukuki tavsiye veya avukat-müvekkil ilişkisi oluşturmaz.';box.appendChild(m)};
+if(AI_URL.includes('YOUR-')){show('');return}
+box.textContent='Mesajınız için kısa bir ön bilgi hazırlanıyor…';
+try{const r=await fetch(AI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(q)});
+const j=await r.json();if(!r.ok||!j.answer)throw 0;show(j.answer)}catch(e){show('')}}
 document.getElementById('enbtn').addEventListener('click',()=>{document.getElementById('tp').value='International / English consultation'});
 </script>
 </body>
