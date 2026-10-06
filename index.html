@@ -62,6 +62,20 @@ h2{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em;margin-bottom:36px;max-w
 .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
 .form .btn{border:0;cursor:pointer;justify-self:start;font-family:inherit}
 #st{font-size:14px;min-height:20px}.note{font-size:12px;color:var(--mute)}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-bottom:1px solid var(--line)}
+.trust div{padding:22px 24px;border-right:1px solid var(--line);font-size:14px;color:var(--mute)}
+.trust b{display:block;color:var(--fg);font:400 19px Fraunces,serif;margin-bottom:2px}
+.urgent{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--card);border:1px solid var(--acc);border-radius:16px;padding:22px 28px;margin-bottom:60px}
+.urgent b{font:400 22px Fraunces,serif}.urgent span{color:var(--mute);font-size:15px;display:block}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font:400 21px Fraunces,serif;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--acc);font-size:26px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--mute);margin-top:12px;max-width:720px}
+.chk{display:flex!important;grid-template-columns:none;gap:10px;align-items:flex-start;font-size:12.5px!important}
+.chk input{width:auto;margin-top:4px;accent-color:var(--acc)}
+.sticky{display:none}
+@media(max-width:720px){.sticky{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.5)}body{padding-bottom:80px}.trust div{border-right:0;border-bottom:1px solid var(--line)}}
 footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .rv{opacity:0;transform:translateY(22px);transition:all .7s ease}.rv.on{opacity:1;transform:none}
 @media(max-width:720px){.row{grid-template-columns:40px 1fr}.row p{grid-column:2}nav a:not(.pill){display:none}.btn.ghost{margin:12px 0 0}.hero::after{opacity:.35}}
@@ -74,7 +88,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 <div class="wrap">
 <header>
 <a class="brand" href="#"><svg><use href="#logo"/></svg><span>Av. Cihan Ay<small>Hukuk &amp; Danışmanlık</small></span></a>
-<nav><a href="#hakkinda">Hakkımda</a><a href="#alanlar">Alanlar</a><a href="#english">English</a><a class="pill" href="#iletisim">İletişim</a></nav>
+<nav><a href="#hakkinda">Hakkımda</a><a href="#alanlar">Alanlar</a><a href="#sss">SSS</a><a href="#english">English</a><a class="pill" href="#iletisim">İletişim</a></nav>
 </header>
 
 <div class="hero">
@@ -88,6 +102,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 
 <div class="marq"><div><span>Ceza Hukuku</span><i>✦</i><span>Aile Hukuku</span><i>✦</i><span>İş Hukuku</span><i>✦</i><span>Gayrimenkul Hukuku</span><i>✦</i><span>Uluslararası Danışmanlık</span><i>✦</i><span>Ceza Hukuku</span><i>✦</i><span>Aile Hukuku</span><i>✦</i><span>İş Hukuku</span><i>✦</i><span>Gayrimenkul Hukuku</span><i>✦</i><span>Uluslararası Danışmanlık</span><i>✦</i></div></div>
 
+<div class="trust"><div><b>Mutlak gizlilik</b>Avukat-müvekkil sırrı</div><div><b>Türkçe &amp; English</b>İki dilde danışmanlık</div><div><b>Online görüşme</b>Türkiye ve yurt dışından</div><div><b>Net bilgilendirme</b>Süreç, risk ve ücret baştan açık</div></div>
 <div class="wrap">
 <section id="hakkinda" class="rv">
 <p class="eyebrow">Hakkımda</p>
@@ -99,6 +114,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 </div>
 </section>
 
+<div class="urgent rv" style="margin-top:60px"><div><b>Acil bir durum mu var?</b><span>Gözaltı, ifade çağrısı, tebligat veya süreli bir işlem için formda "Acil" seçin; öncelikli dönüş yapılır.</span></div><a class="btn" href="#iletisim">Acil talep gönder</a></div>
 <section id="alanlar" class="rv">
 <p class="eyebrow">Çalışma alanları</p>
 <h2>Hayatın en kritik anlarında <em>yanınızda.</em></h2>
@@ -121,6 +137,16 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 </div>
 </section>
 
+<section id="sss" class="rv">
+<p class="eyebrow">Sık sorulan sorular</p>
+<h2>Aklınızdaki <em>sorular.</em></h2>
+<details><summary>İlk görüşmede neler olur?</summary><p>Durumunuzu dinler, hukuki çerçeveyi ve olası seçenekleri açıklarım. Görüşme sonunda süreç, riskler ve ücret konusunda net bir tablo çıkar. Karar tamamen sizindir.</p></details>
+<details><summary>Ücretler nasıl belirleniyor?</summary><p>Ücret, dosyanın türüne ve kapsamına göre belirlenir ve işe başlamadan önce yazılı olarak paylaşılır. Sürpriz masraf çıkmaz.</p></details>
+<details><summary>Görüşme online yapılabilir mi?</summary><p>Evet. Türkiye'nin her yerinden ve yurt dışından video veya telefonla görüşebiliriz. Belgeleri güvenli biçimde dijital olarak iletebilirsiniz.</p></details>
+<details><summary>Bilgilerim gizli kalır mı?</summary><p>Evet. Avukatlık sırrı ve meslek etiği gereği paylaştığınız her bilgi gizlidir ve yalnızca size dönüş yapmak için kullanılır.</p></details>
+<details><summary>Yurt dışından Türkiye'deki bir davayı yürütebilir miyim?</summary><p>Evet. Vekaletname ile dosyanızı sizin adınıza takip edebilirim. Süreci İngilizce olarak adım adım bilgilendiririm.</p></details>
+</section>
+
 <section id="english" class="rv">
 <div class="intl">
 <p class="eyebrow">For international clients</p>
@@ -132,7 +158,8 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 
 <section id="iletisim" class="contact rv">
 <p class="eyebrow" style="justify-content:center">İletişim</p>
-<h2>Sorununuzu Yazın <em>Size Dönelim</em></h2>
+<h2>İlk adım: <em>bir mesaj.</em></h2>
+<p style="color:var(--mute);max-width:560px;margin:-10px auto 36px">Durumunuzu kısaca yazın. Size en kısa sürede dönüş yapıp nasıl yardımcı olabileceğimi açıkça anlatayım.</p>
 <form id="cf" class="form" action="https://formsubmit.co/av.cihanay@hotmail.com" method="POST">
 <input type="hidden" name="_subject" value="Web sitesinden yeni danışmanlık talebi">
 <input type="hidden" name="_captcha" value="false">
@@ -142,13 +169,16 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 <label>E-posta<input type="email" name="email" required autocomplete="email"></label></div>
 <div class="two"><label>Telefon (isteğe bağlı)<input type="tel" name="phone" autocomplete="tel"></label>
 <label>Hukuki konu<select name="topic" id="tp"><option>Emin değilim, yönlendirin</option><option>Ceza davası</option><option>Boşanma, velayet, nafaka</option><option>Aile hukuku (diğer)</option><option>İşçi alacakları, tazminat, işe iade</option><option>İşveren / iş hukuku danışmanlığı</option><option>Tapu, gayrimenkul, kamulaştırma</option><option>Kira ve tahliye</option><option>Miras, tereke, vasiyet</option><option>Tazminat davası</option><option>Trafik kazası, sigorta</option><option>İcra ve iflas, alacak takibi</option><option>Ticaret hukuku, şirket, sözleşme</option><option>Tüketici hukuku</option><option>İdare ve vergi hukuku</option><option>Bilişim, sosyal medya, kişisel veri</option><option>Yabancılar, oturma izni, vatandaşlık</option><option>Sağlık hukuku, malpraktis</option><option>International / English consultation</option><option>Diğer</option></select></label></div>
+<label>Aciliyet<select name="urgency"><option>Acil değil, bilgi almak istiyorum</option><option>Bu hafta görüşmek istiyorum</option><option>Acil, süreli bir işlem var</option></select></label>
 <label>Mesajınız<textarea name="message" rows="5" required placeholder="Durumunuzu kısaca anlatın. Türkçe veya İngilizce yazabilirsiniz."></textarea></label>
+<label class="chk"><input type="checkbox" name="kvkk" required><span>Bilgilerimin yalnızca talebime dönüş yapmak amacıyla işlenmesini kabul ediyorum (KVKK).</span></label>
 <button class="btn" type="submit" id="sb">Gönder</button>
 <p id="st" role="status"></p>
-<p class="note">Bilgileriniz yalnızca size dönüş yapmak için kullanılır ve gizli tutulur.</p>
+<p class="note">Mesajınız gizli tutulur. Bu form avukat-müvekkil ilişkisi kurmaz; ilişki yazılı sözleşme ile başlar.</p>
 </form>
 </section>
 
+<a class="btn sticky" href="#iletisim">Ön görüşme talep edin</a>
 <footer><span style="display:flex;align-items:center;gap:8px"><svg width="22" height="22"><use href="#logo"/></svg>© 2026 Av. Cihan Ay</span><span>Bu sayfadaki bilgiler hukuki tavsiye niteliği taşımaz.</span></footer>
 </div>
 <script>
