@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta name="theme-color" content="#0a1330">
+<meta name="theme-color" content="#040a1c">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Av. Cihan Ay | Hukuk & Danışmanlık</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a1330;--fg:#ffffff;--mute:#aab5d3;--line:#22305f;--acc:#ffd23f;--card:#101b42;--ink:#ffd23f;--inkfg:#0a1330;color-scheme:dark;
+:root{--bg:#040a1c;--fg:#ffffff;--mute:#aab5d3;--line:#16224a;--acc:#ffd23f;--card:#08122e;--ink:#ffd23f;--inkfg:#040a1c;color-scheme:dark;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -78,10 +78,10 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 </header>
 
 <div class="hero">
-<p class="eyebrow">Diyarbakır · Hukuk Bürosu</p>
+<p class="eyebrow">Hukuk &amp; Danışmanlık Bürosu</p>
 <h1>Adaleti <em>anlaşılır</em> kılmak.</h1>
 <p class="sub">Karmaşık hukuki süreçleri sade bir dille anlatan, ilkeli ve sonuç odaklı avukatlık. Yalnızca dosyanızı değil, hayatınızı da anlayarak.</p>
-<a class="btn" href="mailto:av.cihanay@hotmail.com?subject=Ön%20görüşme%20talebi">Ön görüşme talep edin</a>
+<a class="btn" href="#iletisim">Ön görüşme talep edin</a>
 <a class="btn ghost" href="#alanlar">Çalışma alanları</a>
 </div>
 </div>
@@ -108,6 +108,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 <div class="row"><b>03</b><h3>İş Hukuku</h3><p>Kıdem ve ihbar tazminatı, işe iade ve işçi-işveren uyuşmazlıklarında dava ve arabuluculuk desteği.</p></div>
 <div class="row"><b>04</b><h3>Gayrimenkul Hukuku</h3><p>Tapu iptal ve tescil, kamulaştırma, kira tahliye ve gayrimenkul sözleşmeleri.</p></div>
 </div>
+<p style="margin-top:28px;color:var(--mute);font-size:15px">Ayrıca: miras, tazminat, icra ve iflas, ticaret ve şirket, tüketici, idare ve vergi, bilişim, yabancılar hukuku ve daha fazlası. Konunuz listede yoksa formdan "Diğer" seçip yazın.</p>
 </section>
 
 <section class="rv">
@@ -125,13 +126,13 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 <p class="eyebrow">For international clients</p>
 <h2>Turkish law, <em>explained in English.</em></h2>
 <p>Living abroad, investing in Türkiye, or facing a legal issue involving Turkey? I provide legal consultation in fluent English for expats, foreign investors and Turkish citizens overseas. We can meet online, wherever you are.</p>
-<a class="btn" href="mailto:av.cihanay@hotmail.com?subject=Legal%20consultation%20request">Book a consultation</a>
+<a class="btn" href="#iletisim" id="enbtn">Book a consultation</a>
 </div>
 </section>
 
 <section id="iletisim" class="contact rv">
 <p class="eyebrow" style="justify-content:center">İletişim</p>
-<h2>Hikâyenizi <em>dinleyelim.</em></h2>
+<h2>Sorununuzu Yazın <em>Size Dönelim</em></h2>
 <form id="cf" class="form" action="https://formsubmit.co/av.cihanay@hotmail.com" method="POST">
 <input type="hidden" name="_subject" value="Web sitesinden yeni danışmanlık talebi">
 <input type="hidden" name="_captcha" value="false">
@@ -140,13 +141,12 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 <div class="two"><label>Ad Soyad<input name="name" required autocomplete="name"></label>
 <label>E-posta<input type="email" name="email" required autocomplete="email"></label></div>
 <div class="two"><label>Telefon (isteğe bağlı)<input type="tel" name="phone" autocomplete="tel"></label>
-<label>Konu<select name="topic"><option>Ceza Hukuku</option><option>Aile Hukuku</option><option>İş Hukuku</option><option>Gayrimenkul Hukuku</option><option>International / English consultation</option><option>Diğer</option></select></label></div>
+<label>Hukuki konu<select name="topic" id="tp"><option>Emin değilim, yönlendirin</option><option>Ceza davası</option><option>Boşanma, velayet, nafaka</option><option>Aile hukuku (diğer)</option><option>İşçi alacakları, tazminat, işe iade</option><option>İşveren / iş hukuku danışmanlığı</option><option>Tapu, gayrimenkul, kamulaştırma</option><option>Kira ve tahliye</option><option>Miras, tereke, vasiyet</option><option>Tazminat davası</option><option>Trafik kazası, sigorta</option><option>İcra ve iflas, alacak takibi</option><option>Ticaret hukuku, şirket, sözleşme</option><option>Tüketici hukuku</option><option>İdare ve vergi hukuku</option><option>Bilişim, sosyal medya, kişisel veri</option><option>Yabancılar, oturma izni, vatandaşlık</option><option>Sağlık hukuku, malpraktis</option><option>International / English consultation</option><option>Diğer</option></select></label></div>
 <label>Mesajınız<textarea name="message" rows="5" required placeholder="Durumunuzu kısaca anlatın. Türkçe veya İngilizce yazabilirsiniz."></textarea></label>
 <button class="btn" type="submit" id="sb">Gönder</button>
 <p id="st" role="status"></p>
 <p class="note">Bilgileriniz yalnızca size dönüş yapmak için kullanılır ve gizli tutulur.</p>
 </form>
-<p style="margin-top:26px;font-size:14px;color:var(--mute)">veya doğrudan yazın: <a class="mail" style="font-size:16px;border-width:1px" href="mailto:av.cihanay@hotmail.com">av.cihanay@hotmail.com</a></p>
 </section>
 
 <footer><span style="display:flex;align-items:center;gap:8px"><svg width="22" height="22"><use href="#logo"/></svg>© 2026 Av. Cihan Ay</span><span>Bu sayfadaki bilgiler hukuki tavsiye niteliği taşımaz.</span></footer>
@@ -163,12 +163,9 @@ const r=await fetch('https://formsubmit.co/ajax/av.cihanay@hotmail.com',{method:
 const j=await r.json();
 if(!r.ok||j.success==='false')throw 0;
 f.reset();st.style.color='var(--acc)';st.textContent='Teşekkürler, mesajınız ulaştı. En kısa sürede dönüş yapacağım.';
-}catch(e){
-const body=encodeURIComponent(`Ad: ${d.get('name')}\nE-posta: ${d.get('email')}\nTelefon: ${d.get('phone')}\nKonu: ${d.get('topic')}\n\n${d.get('message')}`);
-st.textContent='Otomatik gönderim şu an yapılamadı, e-posta uygulamanız açılıyor…';
-location.href=`mailto:av.cihanay@hotmail.com?subject=${encodeURIComponent('Danışmanlık talebi')}&body=${body}`;
-}
+}catch(e){st.style.color='#ff8a8a';st.textContent='Mesaj şu an gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.';}
 sb.disabled=false;});
+document.getElementById('enbtn').addEventListener('click',()=>{document.getElementById('tp').value='International / English consultation'});
 </script>
 </body>
 </html>
