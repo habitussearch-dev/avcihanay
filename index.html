@@ -210,7 +210,7 @@ f.reset();st.style.color='var(--acc)';st.textContent='Teşekkürler, mesajınız
 }catch(e){st.style.color='#ff8a8a';st.textContent='Mesaj şu an gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.';}
 sb.disabled=false;});
 
-const AI_URL='https://avcihanai.av-cihanay.workers.dev/';
+const AI_URL='https://avcihanai.av-cihanay.workers.dev';
 const NEXT='Daha ayrıntılı değerlendirme için vekâlet verilmesi gerekir. Görüşme için e-posta üzerinden randevu talep edebilirsiniz; formda yazdığınız e-posta adresine dönüş yapılacaktır.';
 async function askAI(q){
 const box=document.getElementById('ai');box.hidden=false;
