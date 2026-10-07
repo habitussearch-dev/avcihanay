@@ -4,7 +4,7 @@
 <meta name="theme-color" content="#050b1d">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Av. Cihan AY | Hukuk & Danışmanlık Ofisi</title>
+<title>Av. Cihan AY | Hukuk ve Danışmanlık Ofisi</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#050b1d;--fg:#e8ecf5;--mute:#97a3c0;--line:#1a2850;--acc:#c8a96a;--card:#0b1733;--ink:#c8a96a;--inkfg:#050b1d;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -12,10 +12,10 @@
 body{background:radial-gradient(900px 600px at 80% -10%,#15296a 0,transparent 70%),radial-gradient(800px 600px at -10% 110%,#0d1c47 0,transparent 70%),var(--bg);background-attachment:fixed;color:var(--fg);font:16px/1.7 Inter,system-ui,sans-serif;overflow-x:hidden}
 h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.12}
 em{font-style:italic;color:var(--acc)}
-header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;padding:18px 24px;pointer-events:none}
-.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg);pointer-events:auto}
-.brand svg{width:44px;height:44px}.nm{font-size:20px;font-weight:600;letter-spacing:.04em;line-height:1.1}
-.brand small{display:block;font:500 9.5px Inter,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:3px}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;padding:22px 28px;pointer-events:none}
+.brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:var(--fg);pointer-events:auto}
+.brand svg{width:60px;height:60px}.nm{font-size:27px;font-weight:600;letter-spacing:.03em;line-height:1.1}
+.brand small{display:block;font:500 11px Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-top:3px}
 .stage3d{position:fixed;inset:0;z-index:0;display:grid;place-items:center;perspective:1200px;pointer-events:none}
 .stage3d::before{content:"";position:absolute;width:min(84vw,680px);height:min(84vw,680px);border-radius:50%;background:radial-gradient(circle,rgba(61,90,170,.26),transparent 66%)}
 .logo3d{position:relative;width:min(62vw,500px);aspect-ratio:1;transform-style:preserve-3d;will-change:transform;opacity:.4}
@@ -91,17 +91,17 @@ details p{color:var(--mute);margin-top:12px;max-width:720px}
 @media(max-width:700px){.menu{grid-template-columns:repeat(2,1fr)}.mt p{display:none}.row{grid-template-columns:40px 1fr}.row p{grid-column:2}.two{grid-template-columns:1fr}.sh-body{padding:26px 18px 48px}.brand small{display:none}.foot .cr{display:none}}
 @media(prefers-reduced-motion:reduce){#splash img{animation:si 1s ease .1s forwards}.sheet,.scrim,.panel,.panel.show{transition-duration:.01s}}
 .cr,.vc{display:block}.vc{margin-top:2px;opacity:.85}
-.cw{position:fixed;left:16px;bottom:48px;z-index:90;display:flex;align-items:flex-end;gap:10px}
+.cw{position:fixed;right:16px;bottom:48px;z-index:90;display:flex;flex-direction:row-reverse;align-items:flex-end;gap:10px}
 .cw-fab{position:relative;width:62px;height:62px;border-radius:50%;border:2px solid var(--acc);background:#14275a;padding:0;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,.5);animation:pulse 3s ease-in-out infinite;flex:none}
 .cw-fab svg{width:100%;height:100%;border-radius:50%}
 .cw-fab .dot{position:absolute;right:1px;bottom:1px;width:13px;height:13px;border-radius:50%;background:#3ddc84;border:2px solid #0b1733}
 @keyframes pulse{0%,100%{box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 0 0 rgba(200,169,106,.5)}60%{box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 0 14px rgba(200,169,106,0)}}
-.cw-bubble{position:relative;max-width:230px;background:#f1ead7;color:#14161b;border-radius:16px 16px 16px 4px;padding:12px 30px 12px 14px;font-size:14px;line-height:1.45;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:bin .6s ease both;cursor:pointer}
+.cw-bubble{position:relative;max-width:230px;background:#f1ead7;color:#14161b;border-radius:16px 16px 4px 16px;padding:12px 30px 12px 14px;font-size:14px;line-height:1.45;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:bin .6s ease both;cursor:pointer}
 .cw-bubble b{display:block;font-size:12px;color:#7a5f28;margin-bottom:2px}
 .cb-x{position:absolute;top:3px;right:6px;border:0;background:none;font-size:18px;cursor:pointer;color:#555}
 @keyframes bin{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 .cw.open .cw-fab,.cw.open .cw-bubble,body.so .cw-bubble{display:none}
-.cw-panel{position:fixed;left:16px;bottom:16px;width:min(384px,calc(100vw - 32px));height:min(580px,calc(100dvh - 32px));background:rgba(8,18,46,.97);border:1px solid rgba(200,169,106,.35);border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);animation:bin .5s ease both}
+.cw-panel{position:fixed;right:16px;bottom:16px;width:min(384px,calc(100vw - 32px));height:min(580px,calc(100dvh - 32px));background:rgba(8,18,46,.97);border:1px solid rgba(200,169,106,.35);border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);animation:bin .5s ease both}
 .cw-panel[hidden]{display:none}
 .cp-h{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);background:rgba(20,39,90,.5);flex:none}
 .cp-av{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--acc);flex:none}
@@ -124,7 +124,8 @@ details p{color:var(--mute);margin-top:12px;max-width:720px}
 .lead input[type=text],.lead input[type=email],.lead input[type=tel]{background:var(--card);border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:9px 11px;font:inherit;font-size:16px;width:100%}
 .lead .k{display:flex;gap:8px;font-size:11.5px;color:var(--mute);align-items:flex-start}.lead .k input{margin-top:3px;accent-color:var(--acc)}
 .lead button{background:var(--acc);color:#050b1d;border:0;border-radius:99px;padding:10px;font:500 14px Inter,sans-serif;cursor:pointer}
-@media(max-width:700px){.cw{left:12px;bottom:46px}.cw-panel{left:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));width:calc(100vw - 16px);height:calc(100dvh - 16px - env(safe-area-inset-top,0px))}}
+@media(max-width:700px){.cw{right:12px;bottom:46px}.cw-panel{right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));width:calc(100vw - 16px);height:calc(100dvh - 16px - env(safe-area-inset-top,0px))}}
+@media(max-width:700px){.brand svg{width:50px;height:50px}.nm{font-size:22px}header{padding:16px}}
 </style>
 </head>
 <body>
@@ -142,10 +143,10 @@ details p{color:var(--mute);margin-top:12px;max-width:720px}
 <p class="eyebrow rise" style="--i:0">Adalet · Güven · Çözüm</p>
 <h1 class="rise" style="--i:1">Adaleti <em>anlaşılır</em> kılmak.</h1>
 <p class="sub rise" style="--i:2">Karmaşık hukuki süreçleri sade bir dille anlatan, ilkeli ve sonuç odaklı avukatlık.</p>
-<nav class="menu"><div class="rise" style="--i:3"><a class="mt" href="#hakkinda" data-go="hakkinda"><b>01</b><h3>Hakkımda</h3><p>Yaklaşım ve ilkeler</p></a></div><div class="rise" style="--i:4"><a class="mt" href="#alanlar" data-go="alanlar"><b>02</b><h3>Çalışma alanları</h3><p>Ceza, aile, iş, gayrimenkul…</p></a></div><div class="rise" style="--i:5"><a class="mt" href="#surec" data-go="surec"><b>03</b><h3>Nasıl çalışıyoruz</h3><p>Üç adımda net bir yol</p></a></div><div class="rise" style="--i:6"><a class="mt" href="#sss" data-go="sss"><b>04</b><h3>Sık sorulan sorular</h3><p>Ücret, gizlilik, online görüşme</p></a></div><div class="rise" style="--i:7"><a class="mt" href="#english" data-go="english"><b>05</b><h3>English</h3><p>Turkish law, in English</p></a></div><div class="rise" style="--i:8"><a class="mt" href="#iletisim" data-go="iletisim"><b>06</b><h3>İletişim</h3><p>Formu doldurun</p></a></div></nav>
+<nav class="menu"><div class="rise" style="--i:3"><a class="mt" href="#hakkinda" data-go="hakkinda"><b>01</b><h3>Hakkımda</h3><p>Yaklaşım ve ilkeler</p></a></div><div class="rise" style="--i:4"><a class="mt" href="#alanlar" data-go="alanlar"><b>02</b><h3>Çalışma alanları</h3><p>Ceza, aile, iş, gayrimenkul…</p></a></div><div class="rise" style="--i:5"><a class="mt" href="#surec" data-go="surec"><b>03</b><h3>Nasıl çalışıyoruz</h3><p>Üç adımda net bir yol</p></a></div><div class="rise" style="--i:6"><a class="mt" href="#sss" data-go="sss"><b>04</b><h3>Sık sorulan sorular</h3><p>Ücret, gizlilik, çevrimiçi görüşme</p></a></div><div class="rise" style="--i:7"><a class="mt" href="#english" data-go="english"><b>05</b><h3 lang="en">English</h3><p lang="en">Turkish law, in English</p></a></div><div class="rise" style="--i:8"><a class="mt" href="#iletisim" data-go="iletisim"><b>06</b><h3>İletişim</h3><p>Formu doldurun</p></a></div></nav>
 <div class="rise" style="--i:9"><a class="btn" href="#iletisim" data-go="iletisim">Ön görüşme talep edin</a></div>
 </div></main>
-<p class="foot"><span class="cr">© 2026 Av. Cihan Ay · Bu sayfadaki bilgiler hukuki tavsiye niteliği taşımaz.</span><span class="vc" id="vc" hidden></span></p>
+<p class="foot"><span class="cr">© 2026 Av. Cihan AY · Bu sayfadaki bilgiler hukuki tavsiye niteliği taşımaz.</span><span class="vc" id="vc" hidden></span></p>
 <div class="scrim" id="sc"></div>
 <aside class="sheet" id="sh" role="dialog" aria-label="İçerik">
 <div class="grab" id="gr"></div>
@@ -155,47 +156,47 @@ details p{color:var(--mute);margin-top:12px;max-width:720px}
 <p class="eyebrow">Hakkımda</p>
 <h2>Hukuk, önce <em>insanı</em> anlamakla başlar.</h2>
 <div class="three">
-<div class="card"><div class="n">01</div><h3>Geniş bakış</h3><p>Uluslararası İlişkiler ve Sosyoloji eğitimi, her dosyaya toplumsal ve küresel bir perspektiften bakmamı sağlıyor.</p></div>
+<div class="card"><div class="n">01</div><h3>Geniş bakış</h3><p>Uluslararası ilişkiler ve sosyoloji eğitimi, her dosyaya toplumsal ve küresel bir bakış açısıyla yaklaşmamı sağlıyor.</p></div>
 <div class="card"><div class="n">02</div><h3>Açık iletişim</h3><p>Ne yapılabileceğini de yapılamayacağını da dürüstçe söylerim. Süreç boyunca her adımdan haberdar olursunuz.</p></div>
 <div class="card"><div class="n">03</div><h3>Mutlak gizlilik</h3><p>Müvekkil mahremiyeti ve meslek etiği, çalışma biçimimin değişmez temelidir.</p></div>
 </div>
-<div class="trust"><div><b>Mutlak gizlilik</b>Avukat-müvekkil sırrı</div><div><b>Türkçe &amp; English</b>İki dilde danışmanlık</div><div><b>Online görüşme</b>Türkiye ve yurt dışından</div><div><b>Net bilgilendirme</b>Süreç, risk ve ücret baştan açık</div></div>
+<div class="trust"><div><b>Mutlak gizlilik</b>Avukatlık sırrı ve meslek etiği</div><div><b>Türkçe ve İngilizce</b>İki dilde danışmanlık</div><div><b>Çevrimiçi görüşme</b>Türkiye'den ve yurt dışından</div><div><b>Net bilgilendirme</b>Süreç, risk ve ücret baştan açık</div></div>
 </section>
 
 <section class="panel" id="alanlar">
 <p class="eyebrow">Çalışma alanları</p>
 <h2>Hayatın en kritik anlarında <em>yanınızda.</em></h2>
 <div class="areas">
-<div class="row"><b>01</b><h3>Ceza Hukuku</h3><p>Soruşturma ve kovuşturma aşamalarında, ağır ceza ve asliye ceza mahkemelerinde etkin savunma.</p></div>
-<div class="row"><b>02</b><h3>Aile Hukuku</h3><p>Anlaşmalı ve çekişmeli boşanma, velayet, nafaka ve mal rejimi tasfiyesinde hassas süreç yönetimi.</p></div>
-<div class="row"><b>03</b><h3>İş Hukuku</h3><p>Kıdem ve ihbar tazminatı, işe iade ve işçi-işveren uyuşmazlıklarında dava ve arabuluculuk desteği.</p></div>
-<div class="row"><b>04</b><h3>Gayrimenkul Hukuku</h3><p>Tapu iptal ve tescil, kamulaştırma, kira tahliye ve gayrimenkul sözleşmeleri.</p></div>
+<div class="row"><b>01</b><h3>Ceza hukuku</h3><p>Soruşturma ve kovuşturma aşamalarında, ağır ceza ve asliye ceza mahkemelerinde etkin savunma.</p></div>
+<div class="row"><b>02</b><h3>Aile hukuku</h3><p>Anlaşmalı ve çekişmeli boşanma, velayet, nafaka ve mal rejimi tasfiyesinde hassas süreç yönetimi.</p></div>
+<div class="row"><b>03</b><h3>İş hukuku</h3><p>Kıdem ve ihbar tazminatı, işe iade ve işçi-işveren uyuşmazlıklarında dava ve arabuluculuk desteği.</p></div>
+<div class="row"><b>04</b><h3>Gayrimenkul hukuku</h3><p>Tapu iptal ve tescil, kamulaştırma, kira ve tahliye davaları ile gayrimenkul sözleşmeleri.</p></div>
 </div>
-<p style="margin-top:26px;color:var(--mute);font-size:15px">Ayrıca: miras, tazminat, icra ve iflas, ticaret ve şirket, tüketici, idare ve vergi, bilişim, yabancılar hukuku ve daha fazlası. Konunuz listede yoksa formdan "Diğer" seçip yazın.</p>
-<div class="urgent"><div><b>Acil bir durum mu var?</b><span>Gözaltı, ifade çağrısı, tebligat veya süreli bir işlem için formda "Acil" seçin; öncelikli dönüş yapılır.</span></div><a class="btn" href="#iletisim" data-go="iletisim">Acil talep gönder</a></div>
+<p style="margin-top:26px;color:var(--mute);font-size:15px">Ayrıca miras, tazminat, icra ve iflas, ticaret ve şirketler, tüketici, idare ve vergi, bilişim ile yabancılar hukuku alanlarında da destek veriyorum. Konunuz listede yoksa formda “Diğer” seçeneğini işaretleyip yazabilirsiniz.</p>
+<div class="urgent"><div><b>Acil bir durum mu var?</b><span>Gözaltı, ifade çağrısı, tebligat veya süreli bir işlem söz konusuysa formda “Acil” seçeneğini işaretleyin; öncelikli olarak dönüş yapılır.</span></div><a class="btn" href="#iletisim" data-go="iletisim">Acil talep gönderin</a></div>
 </section>
 
 <section class="panel" id="surec">
 <p class="eyebrow">Nasıl çalışıyoruz</p>
 <h2>Üç adımda <em>net bir yol.</em></h2>
 <div class="three">
-<div class="card"><div class="n">I</div><h3>Sorunlarınızı Dinler</h3><p>Ön görüşmede durumunuzu ve hedeflerinizi dinler, hukuki çerçeveyi birlikte çizeriz.</p></div>
-<div class="card"><div class="n">II</div><h3>Planlama Yapılır</h3><p>Seçenekleri, riskleri ve olası sonuçları açık bir yol haritasıyla paylaşırım ve her aşamada tarafınızı bilgilendirme yapılır</p></div>
-<div class="card"><div class="n">III</div><h3>Takip edilir</h3><p>Dosyanızı baştan sona yönetir, her gelişmeyi sizinle paylaşırım.</p></div>
+<div class="card"><div class="n">I</div><h3>Sorunlarınız dinlenir</h3><p>Ön görüşmede durumunuz ve hedefleriniz dinlenir, hukuki çerçeve birlikte belirlenir.</p></div>
+<div class="card"><div class="n">II</div><h3>Planlama yapılır</h3><p>Seçenekler, riskler ve olası sonuçlar açık bir yol haritasıyla paylaşılır; her aşamada bilgilendirilirsiniz.</p></div>
+<div class="card"><div class="n">III</div><h3>Takip edilir</h3><p>Dosyanız baştan sona yönetilir ve her gelişme sizinle paylaşılır.</p></div>
 </div>
 </section>
 
 <section class="panel" id="sss">
 <p class="eyebrow">Sık sorulan sorular</p>
 <h2>Aklınızdaki <em>sorular.</em></h2>
-<details><summary>İlk görüşmede neler olur?</summary><p>Durumunuzu dinler, hukuki çerçeveyi ve olası seçenekleri açıklarım. Görüşme sonunda süreç, riskler ve ücret konusunda net bir tablo çıkar. Karar tamamen sizindir.</p></details>
-<details><summary>Ücretler nasıl belirleniyor?</summary><p>Ücret, dosyanın türüne ve kapsamına göre belirlenir ve işe başlamadan önce yazılı olarak paylaşılır. Sürpriz masraf çıkmaz.</p></details>
-<details><summary>Görüşme online yapılabilir mi?</summary><p>Evet. Türkiye'nin her yerinden ve yurt dışından video veya telefonla görüşebiliriz. Belgeleri güvenli biçimde dijital olarak iletebilirsiniz.</p></details>
+<details><summary>İlk görüşmede neler olur?</summary><p>Durumunuzu dinler, hukuki çerçeveyi ve olası seçenekleri açıklarım. Görüşme sonunda süreç, riskler ve ücret konusunda net bir tablo ortaya çıkar. Karar tamamen size aittir.</p></details>
+<details><summary>Ücretler nasıl belirleniyor?</summary><p>Ücret, dosyanın türüne ve kapsamına göre belirlenir ve işe başlamadan önce yazılı olarak paylaşılır. Beklenmedik masraf çıkmaz.</p></details>
+<details><summary>Görüşme çevrimiçi yapılabilir mi?</summary><p>Evet. Türkiye'nin her yerinden ve yurt dışından video veya telefonla görüşebiliriz. Belgeleri güvenli biçimde dijital olarak iletebilirsiniz.</p></details>
 <details><summary>Bilgilerim gizli kalır mı?</summary><p>Evet. Avukatlık sırrı ve meslek etiği gereği paylaştığınız her bilgi gizlidir ve yalnızca size dönüş yapmak için kullanılır.</p></details>
-<details><summary>Yurt dışından Türkiye'deki bir davayı yürütebilir miyim?</summary><p>Evet. Vekaletname ile dosyanızı sizin adınıza takip edebilirim. Süreci İngilizce olarak adım adım bilgilendiririm.</p></details>
+<details><summary>Yurt dışında yaşıyorum; Türkiye'deki davamı takip edebilir misiniz?</summary><p>Evet. Vekâletname ile dosyanızı sizin adınıza takip edebilirim. Süreci gerekirse İngilizce olarak adım adım anlatırım.</p></details>
 </section>
 
-<section class="panel" id="english">
+<section class="panel" id="english" lang="en">
 <div class="intl">
 <p class="eyebrow">For international clients</p>
 <h2>Turkish law, <em>explained in English.</em></h2>
@@ -207,23 +208,23 @@ details p{color:var(--mute);margin-top:12px;max-width:720px}
 <section class="panel contact" id="iletisim">
 <p class="eyebrow" style="justify-content:center">İletişim</p>
 <h2>İlk adım: <em>bir mesaj.</em></h2>
-<p style="color:var(--mute);max-width:560px;margin:-10px auto 36px">Durumunuzu kısaca yazın. Size en kısa sürede dönüş yapıp nasıl yardımcı olabileceğimi açıkça anlatayım.</p>
+<p style="color:var(--mute);max-width:560px;margin:-10px auto 36px">Durumunuzu kısaca yazın. En kısa sürede size dönüş yapar, nasıl yardımcı olabileceğimi açıkça anlatırım.</p>
 <form id="cf" class="form" action="https://formsubmit.co/av.cihanay@hotmail.com" method="POST">
 <input type="hidden" name="_subject" value="Web sitesinden yeni danışmanlık talebi">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
-<div class="two"><label>Ad Soyad<input name="name" required autocomplete="name"></label>
+<div class="two"><label>Ad ve soyad<input name="name" required autocomplete="name"></label>
 <label>E-posta<input type="email" name="email" required autocomplete="email"></label></div>
 <div class="two"><label>Telefon (isteğe bağlı)<input type="tel" name="phone" autocomplete="tel"></label>
-<label>Hukuki konu<select name="topic" id="tp"><option>Emin değilim, yönlendirin</option><option>Ceza davası</option><option>Boşanma, velayet, nafaka</option><option>Aile hukuku (diğer)</option><option>İşçi alacakları, tazminat, işe iade</option><option>İşveren / iş hukuku danışmanlığı</option><option>Tapu, gayrimenkul, kamulaştırma</option><option>Kira ve tahliye</option><option>Miras, tereke, vasiyet</option><option>Tazminat davası</option><option>Trafik kazası, sigorta</option><option>İcra ve iflas, alacak takibi</option><option>Ticaret hukuku, şirket, sözleşme</option><option>Tüketici hukuku</option><option>İdare ve vergi hukuku</option><option>Bilişim, sosyal medya, kişisel veri</option><option>Yabancılar, oturma izni, vatandaşlık</option><option>Sağlık hukuku, malpraktis</option><option>International / English consultation</option><option>Diğer</option></select></label></div>
-<label>Aciliyet<select name="urgency"><option>Acil değil, bilgi almak istiyorum</option><option>Bu hafta görüşmek istiyorum</option><option>Acil, süreli bir işlem var</option></select></label>
+<label>Hukuki konu<select name="topic" id="tp"><option>Emin değilim, yönlendirin</option><option>Ceza davası</option><option>Boşanma, velayet, nafaka</option><option>Aile hukuku (diğer)</option><option>İşçi alacakları, tazminat, işe iade</option><option>İşveren olarak iş hukuku danışmanlığı</option><option>Tapu, gayrimenkul, kamulaştırma</option><option>Kira ve tahliye</option><option>Miras, tereke, vasiyetname</option><option>Tazminat davası</option><option>Trafik kazası, sigorta</option><option>İcra ve iflas, alacak takibi</option><option>Ticaret hukuku, şirketler, sözleşmeler</option><option>Tüketici hukuku</option><option>İdare ve vergi hukuku</option><option>Bilişim, sosyal medya, kişisel veriler</option><option>Yabancılar hukuku, oturma izni, vatandaşlık</option><option>Sağlık hukuku, hekim hatası (malpraktis)</option><option>İngilizce danışmanlık (English consultation)</option><option>Diğer</option></select></label></div>
+<label>Aciliyet<select name="urgency"><option>Acil değil, bilgi almak istiyorum</option><option>Bu hafta görüşmek istiyorum</option><option>Acil, süreli bir işlem söz konusu</option></select></label>
 <label>Mesajınız<textarea name="message" rows="5" required placeholder="Durumunuzu kısaca anlatın. Türkçe veya İngilizce yazabilirsiniz."></textarea></label>
-<label class="chk"><input type="checkbox" name="kvkk" required><span>Mesajımın bana dönüş yapmak ve otomatik ön bilgi üretmek amacıyla işlenmesini (yapay zekâ destekli sistem dahil) kabul ediyorum (KVKK).</span></label>
+<label class="chk"><input type="checkbox" name="kvkk" required><span>Mesajımın, tarafıma dönüş yapılması ve otomatik ön bilgi hazırlanması amacıyla (yapay zekâ destekli sistem dahil) işlenmesini kabul ediyorum (KVKK).</span></label>
 <button class="btn" type="submit" id="sb">Gönder</button>
 <p id="st" role="status"></p>
 <div id="ai" class="ai" hidden></div>
-<p class="note">Lütfen TC kimlik no, tam adres gibi kişisel verileri yazmayın. Mesajınız gizli tutulur. Bu form avukat-müvekkil ilişkisi kurmaz; ilişki yazılı sözleşme ile başlar.</p>
+<p class="note">Lütfen T.C. kimlik numarası, açık adres gibi kişisel verileri yazmayın. Mesajınız gizli tutulur. Bu form avukat–müvekkil ilişkisi kurmaz; bu ilişki yazılı sözleşmeyle başlar.</p>
 </form>
 </section>
 
@@ -281,12 +282,12 @@ async function askAI(q){
 const box=document.getElementById('ai');box.hidden=false;
 const show=(t)=>{box.innerHTML='';if(t){const p=document.createElement('p');p.textContent=t;box.appendChild(p)}
 const n=document.createElement('p');n.className='nx';n.textContent=NEXT;box.appendChild(n);
-const m=document.createElement('small');m.textContent='Bu otomatik yanıt genel bilgidir; hukuki tavsiye veya avukat-müvekkil ilişkisi oluşturmaz.';box.appendChild(m)};
+const m=document.createElement('small');m.textContent='Bu otomatik yanıt genel bilgidir; hukuki tavsiye veya avukat–müvekkil ilişkisi oluşturmaz.';box.appendChild(m)};
 if(AI_URL.includes('YOUR-')){show('');return}
 box.textContent='Mesajınız için kısa bir ön bilgi hazırlanıyor…';
 try{const r=await fetch(AI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(q)});
 const j=await r.json();if(!r.ok||!j.answer)throw 0;show(j.answer)}catch(e){show('')}}
-document.getElementById('enbtn').addEventListener('click',()=>{document.getElementById('tp').value='International / English consultation'});
+document.getElementById('enbtn').addEventListener('click',()=>{document.getElementById('tp').value='İngilizce danışmanlık (English consultation)'});
 
 </script>
 <svg width="0" height="0" style="position:absolute"><symbol id="av" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#16306c"/><path d="M6 64c2-14 12-19 26-19s24 5 26 19z" fill="#0a1226"/><path d="M25 45l7 11 7-11z" fill="#f1ead7"/><path d="M30.4 48h3.2l1.6 9-3.2 3.2-3.2-3.2z" fill="#c8a96a"/><rect x="28" y="36" width="8" height="10" rx="3" fill="#d9ab86"/><ellipse cx="32" cy="27" rx="10" ry="12" fill="#e5b995"/><path d="M21.5 26c-.5-10 5.5-15 11-15s11.5 5 10.5 15c-2-5.5-5-7.5-10.7-7.5S23.6 20.500 21.5 26z" fill="#1c1918"/><circle cx="28" cy="28.500" r="1.100" fill="#2a2220"/><circle cx="36" cy="28.500" r="1.100" fill="#2a2220"/><path d="M28.600 33.500q3.400 2.600 6.800 0" stroke="#8a5a44" stroke-width="1.200" fill="none" stroke-linecap="round"/></symbol></svg>
@@ -294,11 +295,11 @@ document.getElementById('enbtn').addEventListener('click',()=>{document.getEleme
 <button class="cw-fab" id="cfab" aria-label="Sohbeti aç"><svg><use href="#av"/></svg><i class="dot"></i></button>
 <div class="cw-bubble" id="cb" hidden><button class="cb-x" id="cbx" aria-label="Kapat">×</button><b>Dijital Asistan</b>Merhaba! Size nasıl yardımcı olabilirim?</div>
 <section class="cw-panel" id="cp" hidden role="dialog" aria-label="Sohbet">
-<div class="cp-h"><svg class="cp-av"><use href="#av"/></svg><div><b>Dijital Hukuk Asistanı</b><small>Yapay zekâ · Av. Cihan AY Hukuk Ofisi</small></div><button id="cpx" aria-label="Kapat">×</button></div>
+<div class="cp-h"><svg class="cp-av"><use href="#av"/></svg><div><b>Dijital Hukuk Asistanı</b><small>Yapay zekâ asistanı · Av. Cihan AY</small></div><button id="cpx" aria-label="Kapat">×</button></div>
 <div class="cp-b" id="cm" aria-live="polite"></div>
 <div class="cp-chips" id="cc"></div>
 <form class="cp-f" id="cfm"><input id="ci" maxlength="600" placeholder="Mesajınızı yazın…" autocomplete="off"><button aria-label="Gönder">→</button></form>
-<p class="cp-n">Yapay zekâ genel bilgi verir; hukuki tavsiye değildir. TC kimlik no gibi kişisel verileri yazmayın.</p>
+<p class="cp-n">Yapay zekâ genel bilgi verir; bu bilgiler hukuki tavsiye değildir. T.C. kimlik numarası gibi kişisel verileri yazmayın.</p>
 </section></div>
 <script>
 (function(){
@@ -316,10 +317,10 @@ const isEn=t=>!/[çğıöşüÇĞİÖŞÜ]/.test(t)&&/\b(the|and|my|please|need|
 function add(role,text){const d=document.createElement('div');d.className='m '+(role==='u'?'u':'b');d.textContent=text;cm.appendChild(d);cm.scrollTop=cm.scrollHeight;return d}
 function typing(){const d=document.createElement('div');d.className='m b';d.innerHTML='<span class="typ"><i></i><i></i><i></i></span>';cm.appendChild(d);cm.scrollTop=cm.scrollHeight;return d}
 function chips(list){cc.innerHTML='';list.forEach(([label,fn,pri])=>{const b=document.createElement('button');b.type='button';b.textContent=label;if(pri)b.className='pri';b.onclick=fn;cc.appendChild(b)})}
-function mainChips(){chips([[T('Görüşme talep et','Request a consultation'),lead,true],[T('Çalışma alanları','Practice areas'),()=>ask(T('Hangi alanlarda hizmet veriyorsunuz?','Which areas of law do you cover?'))]])}
-function startChips(){chips([['Boşanma / velayet',()=>ask('Boşanma ve velayet konusunda bilgi almak istiyorum.')],['Ceza davası',()=>ask('Bir ceza davası hakkında bilgi almak istiyorum.')],['İş hukuku',()=>ask('İşten çıkarıldım, haklarımı öğrenmek istiyorum.')],['Randevu almak istiyorum',lead,true],['English',()=>ask('Hello, I need legal advice about Turkish law.')]])}
+function mainChips(){chips([[T('Görüşme talep edin','Request a consultation'),lead,true],[T('Çalışma alanları','Practice areas'),()=>ask(T('Hangi alanlarda hizmet veriyorsunuz?','Which areas of law do you cover?'))]])}
+function startChips(){chips([['Boşanma ve velayet',()=>ask('Boşanma ve velayet konusunda bilgi almak istiyorum.')],['Ceza davası',()=>ask('Bir ceza davası hakkında bilgi almak istiyorum.')],['İş hukuku',()=>ask('İşten çıkarıldım, haklarımı öğrenmek istiyorum.')],['Randevu almak istiyorum',lead,true],['English',()=>ask('Hello, I need legal advice about Turkish law.')]])}
 function openC(){cw.classList.add('open');cp.hidden=false;cb.hidden=true;
-if(!started){started=true;add('b','Merhaba, ben Av. Cihan AY Hukuk Ofisi\'nin dijital asistanıyım (yapay zekâ). Size nasıl yardımcı olabilirim?');startChips()}
+if(!started){started=true;add('b','Merhaba, ben Av. Cihan AY\'ın dijital asistanıyım (yapay zekâ). Size nasıl yardımcı olabilirim?');startChips()}
 if(matchMedia('(pointer:fine)').matches)setTimeout(()=>ci.focus(),300)}
 function closeC(){cw.classList.remove('open');cp.hidden=true}
 async function ask(text){
@@ -327,21 +328,21 @@ text=String(text||'').trim();if(busy||!text)return;
 if(n>=20){add('b',T('Çok sayıda mesaj gönderdiniz. Lütfen görüşme talep edin.','You have sent many messages. Please request a consultation.'));mainChips();return}
 n++;en=isEn(text);add('u',text);hist.push({role:'user',content:text});ci.value='';cc.innerHTML='';busy=true;const t=typing();
 try{const r=await fetch(AI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist.slice(-10)})});const j=await r.json();if(!r.ok||!j.answer)throw 0;t.remove();add('b',j.answer);hist.push({role:'assistant',content:j.answer})}
-catch(e){t.remove();hist.pop();add('b',T('Şu an yanıt veremiyorum. Lütfen "Görüşme talep et" ile bilgilerinizi bırakın, size dönüş yapılsın.','I cannot answer right now. Please use "Request a consultation" and we will get back to you.'))}
+catch(e){t.remove();hist.pop();add('b',T('Şu anda yanıt veremiyorum. Lütfen “Görüşme talep edin” düğmesiyle bilgilerinizi bırakın; size dönüş yapalım.','I cannot answer right now. Please use “Request a consultation” and we will get back to you.'))}
 busy=false;mainChips()}
 function lead(){
 if(document.getElementById('ld'))return;cc.innerHTML='';
 add('b',T('Elbette. Bilgilerinizi bırakın, ofisimiz e-posta ile size dönüş yapsın. Daha ayrıntılı değerlendirme için vekâlet verilmesi veya randevu oluşturulması gerekir.','Of course. Leave your details and our office will reply by email. A more detailed assessment requires a power of attorney or an appointment.'));
 const f=document.createElement('form');f.className='lead';f.id='ld';
-f.innerHTML='<input type="text" name="name" required placeholder="'+T('Ad Soyad','Full name')+'" autocomplete="name"><input type="email" name="email" required placeholder="'+T('E-posta','Email')+'" autocomplete="email"><input type="tel" name="phone" placeholder="'+T('Telefon (isteğe bağlı)','Phone (optional)')+'" autocomplete="tel"><label class="k"><input type="checkbox" required><span>'+T('Bilgilerimin ve sohbet içeriğinin bana dönüş yapmak amacıyla işlenmesini kabul ediyorum (KVKK).','I agree to my details and this chat being processed so you can contact me back.')+'</span></label><button type="submit">'+T('Gönder','Send')+'</button>';
+f.innerHTML='<input type="text" name="name" required placeholder="'+T('Ad ve soyad','Full name')+'" autocomplete="name"><input type="email" name="email" required placeholder="'+T('E-posta','Email')+'" autocomplete="email"><input type="tel" name="phone" placeholder="'+T('Telefon (isteğe bağlı)','Phone (optional)')+'" autocomplete="tel"><label class="k"><input type="checkbox" required><span>'+T('Bilgilerimin ve sohbet içeriğimin, tarafıma dönüş yapılması amacıyla işlenmesini kabul ediyorum (KVKK).','I agree to my details and this chat being processed so you can contact me back.')+'</span></label><button type="submit">'+T('Gönder','Send')+'</button>';
 f.onsubmit=async e=>{e.preventDefault();const b=f.querySelector('button');b.disabled=true;
 const d=new FormData(f);d.append('topic','Sohbet asistanı');d.append('urgency','-');
 d.append('message',hist.length?hist.map(m=>(m.role==='user'?'Ziyaretçi: ':'Asistan: ')+m.content).join('\n'):'(Sohbet yok)');
 d.append('_subject','Sohbet asistanından yeni talep');d.append('_captcha','false');d.append('_template','table');d.append('_honey','');
 try{const r=await fetch('https://formsubmit.co/ajax/av.cihanay@hotmail.com',{method:'POST',headers:{Accept:'application/json'},body:d});const j=await r.json();if(!r.ok||j.success==='false')throw 0;
 f.remove();add('b',T('Teşekkürler! Talebiniz ulaştı, ofisimiz e-posta ile size dönüş yapacaktır.','Thank you! Your request has been received and our office will reply by email.'))}
-catch(x){b.disabled=false;add('b',T('Gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin veya İletişim formunu kullanın.','Could not send. Please try again shortly or use the contact form.'));
-chips([[T('İletişim formunu aç','Open contact form'),()=>{closeC();const a=document.querySelector('.tabs a[data-go="iletisim"]');a&&a.click()}]])}};
+catch(x){b.disabled=false;add('b',T('Gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin veya iletişim formunu kullanın.','Could not send. Please try again shortly or use the contact form.'));
+chips([[T('İletişim formunu açın','Open contact form'),()=>{closeC();const a=document.querySelector('.tabs a[data-go="iletisim"]');a&&a.click()}]])}};
 cm.appendChild(f);cm.scrollTop=cm.scrollHeight}
 document.getElementById('cfab').onclick=openC;cb.onclick=openC;
 document.getElementById('cbx').onclick=e=>{e.stopPropagation();cb.hidden=true;try{sessionStorage.setItem('av_cb','1')}catch(x){}};
