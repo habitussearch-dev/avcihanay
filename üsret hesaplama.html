@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avukatlık Ücreti ve Dava Masrafı Hesaplama 2026 | Av. Cihan AY</title>
+<meta name="description" content="Avukatlık Asgari Ücret Tarifesi (2025-2026) ve 2026 harç tarifesine göre avukatlık ücreti, harç ve yargılama giderlerini kalem kalem hesaplayın.">
+<link rel="canonical" href="https://www.avcihanay.com.tr/ucret-hesaplama.html">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>:root{--bg:#050b1d;--fg:#e8ecf5;--mute:#97a3c0;--line:#1a2850;--acc:#c8a96a;color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 Inter,system-ui,sans-serif}main{max-width:780px;margin:0 auto;padding:40px 20px 80px}a{color:var(--acc)}nav a{font-size:15px;text-decoration:none}h1,h2{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.2}h1{font-size:clamp(28px,5vw,42px)}p{color:#c4cde2}label{display:grid;gap:6px;font-size:14px;color:var(--mute);margin:14px 0}select,input{font:inherit;font-size:16px;color:var(--fg);background:#0b1733;border:1px solid var(--line);border-radius:12px;padding:12px;width:100%}table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}td:last-child{text-align:right;white-space:nowrap}tr.h td{color:var(--acc);font-family:Fraunces,Georgia,serif;font-size:18px;border-bottom:1px solid var(--acc);padding-top:20px}tr.t td{font-weight:500;font-size:18px}small,.n{color:var(--mute);font-size:13px}.btn{display:inline-block;background:var(--acc);color:#050b1d;padding:14px 28px;border-radius:99px;text-decoration:none;font-weight:500;margin-top:20px}footer{color:var(--mute);font-size:13px;margin-top:48px}</style></head>
+<body><main>
+<nav><a href="/">← Ana sayfa</a></nav>
+<h1>Avukatlık ücreti ve dava masrafı hesaplama</h1>
+<p>İşin türünü ve varsa dava değerini girin. Tutarlar, yürürlükteki Avukatlık Asgari Ücret Tarifesi ve 2026 harç tarifesine göre kalem kalem gösterilir.</p>
+<label>İş / dava türü<select id="i"></select></label>
+<label>Dava veya takip değeri (TL) <small>Konusu para olmayan işlerde (boşanma, ceza vb.) boş bırakın</small><input id="v" type="number" min="0" step="any" inputmode="decimal"></label>
+<label>Tebligat ve posta için gider avansı (TL, tahmini)<input id="g" type="number" min="0" step="any" value="530"></label>
+<label>Diğer yargılama giderleri (TL, tahmini) <small>Bilirkişi, keşif, tanık gibi; dosyaya göre değişir</small><input id="d" type="number" min="0" step="any" value="0"></label>
+<table id="t"></table>
+<p class="n">Dayanak: 2025-2026 Avukatlık Asgari Ücret Tarifesi (RG 4.11.2025, 33067; 8.1.2026 ve 28.3.2026 değişiklikleri) ve 2026 yargı harçları tarifesi. Tarife her yıl yenilenir, sonraki sürüm yayımlandığında bu sayfa güncellenir.</p>
+<h2>Bilmeniz gerekenler</h2>
+<p>Avukatlık ücreti taraflarca serbestçe belirlenir, ancak tarifedeki tutarın altında olamaz. Burada gösterilen tutar bir <b>alt sınırdır</b>, teklif veya sözleşme değildir. Davayı kaybeden tarafa yüklenen vekâlet ücreti ise kabul veya ret edilen miktarı geçemez; mahkeme tarifedeki tutarın üç katına kadar hükmedebilir. Uyuşmazlık ön inceleme tutanağı imzalanmadan sona ererse karşı vekâlet ücreti genellikle yarıya iner. Harç, gider avansı ve bilirkişi ücretleri avukatlık ücretinden ayrıdır ve dosyaya göre değişir.</p>
+<a class="btn" href="/#iletisim">Ön görüşme talep edin</a>
+<footer>© 2026 Av. Cihan AY, Diyarbakır. Bu sayfadaki hesaplamalar genel bilgilendirme amaçlıdır, hukuki tavsiye niteliği taşımaz ve avukat–müvekkil ilişkisi kurmaz.</footer>
+</main>
+<script>
+const T={bas:732,basS:335.2,mk:732,or:0.06831,ic:0.005};
+const TIERS=[[6e5,.16],[6e5,.15],[1.2e6,.14],[1.2e6,.13],[1.8e6,.11],[2.4e6,.08],[3e6,.05],[3.6e6,.03],[4.2e6,.02],[Infinity,.01]];
+/* [grup, ad, maktu, nispi uygulanır mı, harç türü: a=asliye tipi, s=sulh, i=icra dairesi, d=idari yargı, n=harç yok] */
+const J=[
+["Dava ve takipler","İcra dairesinde takip",9000,1,"i"],["Dava ve takipler","İcra mahkemesinde işler",11000,1,"s"],["Dava ve takipler","İcra mahkemesinde dava / duruşmalı işler",18000,1,"s"],["Dava ve takipler","Tahliyeye ilişkin icra takibi",20000,1,"i"],
+["Dava ve takipler","Sulh hukuk mahkemesi",30000,1,"s"],["Dava ve takipler","Asliye hukuk / aile mahkemesi (boşanma, velayet, alacak, iş vb.)",45000,1,"a"],["Dava ve takipler","Tüketici mahkemesi",22500,1,"a"],["Dava ve takipler","Fikri ve sınai haklar mahkemesi",55000,1,"a"],
+["Dava ve takipler","Ağır ceza mahkemesi",65000,0,"n"],["Dava ve takipler","Sulh ceza / infaz hâkimliği",18000,0,"n"],
+["İdari yargı","İdare ve vergi mahkemesi (duruşmasız)",30000,1,"d"],["İdari yargı","İdare ve vergi mahkemesi (duruşmalı)",40000,1,"d"],["İdari yargı","Danıştay, ilk derecede (duruşmasız)",40000,1,"d"],["İdari yargı","Bölge idare mahkemesi, ilk derecede",35000,1,"d"],
+["Üst mahkemeler","Bölge adliye mahkemesi, ilk derecede",35000,1,"a"],["Üst mahkemeler","Yargıtay, ilk derecede",65000,1,"a"],
+["Danışma ve belgeler","Büroda sözlü danışma (ilk saat)",4000,0,"n"],["Danışma ve belgeler","Yerinde sözlü / yazılı danışma (ilk saat)",7000,0,"n"],["Danışma ve belgeler","Dilekçe, ihbarname, ihtarname (başlangıç)",6000,0,"n"],["Danışma ve belgeler","Kira sözleşmesi hazırlama",8000,0,"n"],["Danışma ve belgeler","Arabuluculuk, anlaşmazlıkla sonuçlanırsa",8000,0,"n"]];
+function nispi(v){let r=v,s=0;for(const[w,o]of TIERS){const x=Math.min(r,w);s+=x*o;r-=x;if(r<=0)break}return s}
+function calc(i,v,g,d){
+ const[,ad,mk,np,h]=J[i];let uc=mk,yo="Maktu (tarifedeki sabit tutar)";
+ if(v>0&&np){const n=nispi(v);if(n>mk){uc=n;yo="Nispi, dilimli hesap: "+fmt(n)}else yo="Nispi hesap ("+fmt(n)+") maktu tabanın altında kaldığı için maktu esas alındı"}
+ const karsi=v>0?Math.min(uc,v):uc,ac=[],so=[];
+ if(h==="a"||h==="s"){ac.push(["Başvurma harcı",h==="s"?T.basS:T.bas]);
+  if(v>0){const n=Math.max(v*T.or,T.mk);ac.push(["Peşin karar ve ilam harcı (nispi harcın 1/4’ü)",n/4]);so.push(["Kalan karar ve ilam harcı (3/4), karar sonrası",n*3/4])}
+  else ac.push(["Maktu karar ve ilam harcı",T.mk])}
+ if(h==="i"){ac.push(["İcraya başvurma harcı",T.mk]);if(v>0)ac.push(["Peşin harç (binde 5)",v*T.ic])}
+ if(h==="d"){ac.push(["Başvurma harcı",T.bas]);ac.push(["Maktu karar harcı (idari yargıda dava türüne göre değişir, tahmini)",T.mk])}
+ if(h!=="n"){if(g>0)ac.push(["Tebligat ve posta gider avansı (tahmini)",g]);if(d>0)ac.push(["Diğer yargılama giderleri (tahmini)",d])}
+ const ta=ac.reduce((a,b)=>a+b[1],0);
+ return{ad,uc,yo,karsi,ac,so,ta,tpl:uc+ta}}
+function fmt(n){return n.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})+" TL"}
+/*UI*/
+const $=id=>document.getElementById(id),sel=$("i");let gr="",og;
+J.forEach((j,k)=>{if(j[0]!==gr){gr=j[0];og=document.createElement("optgroup");og.label=gr;sel.appendChild(og)}const o=document.createElement("option");o.value=k;o.textContent=j[1];og.appendChild(o)});
+sel.value=5;
+function row(c,a,b){return"<tr"+(c?' class="'+c+'"':"")+"><td>"+a+"</td><td>"+(b==null?"":fmt(b))+"</td></tr>"}
+function render(){
+ const r=calc(+sel.value,+$("v").value||0,+$("g").value||0,+$("d").value||0);
+ let h=row("h","1. Avukatlık ücreti (asgari)")+"<tr><td>"+r.ad+"<br><small>"+r.yo+"</small></td><td>"+fmt(r.uc)+"</td></tr>";
+ h+=row("h","2. Dava açılırken yatırılacaklar");
+ h+=r.ac.length?r.ac.map(x=>row("",x[0],x[1])).join("")+row("t","Toplam",r.ta):'<tr><td colspan="2"><small>Bu işte harç veya gider avansı yoktur.</small></td></tr>';
+ if(r.so.length||r.karsi)h+=row("h","3. Dava sonunda kaybeden tarafa yüklenebilecekler")+r.so.map(x=>row("",x[0],x[1])).join("")+row("","Karşı taraf vekâlet ücreti (kabul/ret miktarını geçemez)",r.karsi);
+ h+=row("h","Özet")+row("t","Avukatlık ücreti + dava açılış giderleri",r.tpl);
+ $("t").innerHTML=h}
+["i","v","g","d"].forEach(x=>$(x).addEventListener("input",render));render();
+</script></body></html>
