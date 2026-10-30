@@ -355,7 +355,7 @@ function chips(list){cc.innerHTML='';list.forEach(([label,fn,pri])=>{const b=doc
 function mainChips(){chips([[T('Görüşme talep edin','Request a consultation'),lead,true],[T('Çalışma alanları','Practice areas'),()=>ask(T('Hangi alanlarda hizmet veriyorsunuz?','Which areas of law do you cover?'))]])}
 function startChips(){chips([['Boşanma ve velayet',()=>ask('Boşanma ve velayet konusunda bilgi almak istiyorum.')],['Ceza davası',()=>ask('Bir ceza davası hakkında bilgi almak istiyorum.')],['İş hukuku',()=>ask('İşten çıkarıldım, haklarımı öğrenmek istiyorum.')],['Randevu almak istiyorum',lead,true],['Ücret hesaplama',()=>{location.href='/ucret-hesaplama.html'}],['English',()=>ask('Hello, I need legal advice about Turkish law.')]])}
 function openC(){cw.classList.add('open');cp.hidden=false;cb.hidden=true;
-if(!started){started=true;add('b','Merhaba, ben Av. Cihan AY\'ın dijital asistanıyım (yapay zekâ). Size nasıl yardımcı olabilirim?');startChips()}
+if(!started){started=true;add('b','Merhaba ben CihanAİ, Av. Cihan AY\'ın kişisel dijital asistanı, hoş geldiniz. Bir yapay zekâ asistanıyım; size nasıl yardımcı olabilirim?');startChips()}
 if(matchMedia('(pointer:fine)').matches)setTimeout(()=>ci.focus(),300)}
 function closeC(){cw.classList.remove('open');cp.hidden=true}
 async function ask(text){
@@ -380,7 +380,7 @@ catch(x){b.disabled=false;add('b',T('Gönderilemedi. Lütfen birkaç dakika sonr
 chips([[T('İletişim formunu açın','Open contact form'),()=>{closeC();const a=document.querySelector('.tabs a[data-go="iletisim"]');a&&a.click()}]])}};
 cm.appendChild(f);cm.scrollTop=cm.scrollHeight}
 document.getElementById('cfab').onclick=openC;cb.onclick=openC;
-document.getElementById('cbx').onclick=e=>{e.stopPropagation();cb.hidden=true;try{sessionStorage.setItem('av_cb','1')}catch(x){}};
+document.getElementById('cbx').onclick=e=>{e.stopPropagation();cb.hidden=true;};
 document.getElementById('cpx').onclick=closeC;
 document.getElementById('cfm').onsubmit=e=>{e.preventDefault();ask(ci.value)};
 setTimeout(()=>{let seen=false;try{seen=sessionStorage.getItem('av_cb')==='1'}catch(e){}if(!seen&&!cw.classList.contains('open'))cb.hidden=false},4800);
@@ -391,10 +391,10 @@ setTimeout(()=>{let seen=false;try{seen=sessionStorage.getItem('av_cb')==='1'}ca
 (function(){
 const it=document.getElementById('intro'),av=it.querySelector('.ia'),bb=it.querySelector('.ib'),cw=document.getElementById('cw'),cb=document.getElementById('cb'),fab=document.getElementById('cfab');
 let skip=matchMedia('(prefers-reduced-motion:reduce)').matches;
-try{if(sessionStorage.getItem('av_intro')==='1')skip=true}catch(e){}
+
 if(skip)return;
 cw.style.visibility='hidden';
-const done=()=>{it.hidden=true;cw.style.visibility='';try{sessionStorage.setItem('av_intro','1')}catch(e){}
+const done=()=>{it.hidden=true;cw.style.visibility='';
 let seen=false;try{seen=sessionStorage.getItem('av_cb')==='1'}catch(e){}if(!seen&&!cw.classList.contains('open'))cb.hidden=false};
 setTimeout(done,14000);
 function fly(){const fr=fab.getBoundingClientRect(),ar=av.getBoundingClientRect();
