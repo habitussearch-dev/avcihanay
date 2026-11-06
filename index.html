@@ -157,6 +157,13 @@ h1{font-size:clamp(30px,4.4vw,52px);margin-bottom:10px}
 #intro .ia{position:fixed;border-radius:50%;border:2px solid var(--acc);background:#14275a;box-shadow:0 12px 40px rgba(0,0,0,.55)}
 #intro .ib{position:fixed;width:max-content;max-width:min(300px,86vw);background:#f1ead7;color:#14161b;border-radius:16px;padding:12px 16px;font-size:14.5px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 #intro .ib b{display:block;font-size:12px;color:#7a5f28;margin-bottom:2px}
+@media(max-width:900px){
+.orbit{grid-template-columns:1fr auto 1fr;grid-template-areas:"l m r" "c c c";gap:8px;align-items:center}
+.mid{display:contents}
+.logo-wrap{grid-area:m;width:min(30vw,24vh,170px)}
+.mid>.rise:last-child{grid-area:c;justify-self:center;margin-top:16px}
+.col.l{grid-area:l}.col.r{grid-area:r}.col{gap:8px}.col.l,.col.r{text-align:center}
+.mt{padding:10px 6px;border-radius:12px}.mt h3{font-size:13.5px;line-height:1.2;margin:2px 0 0}.mt b{font-size:9px}}
 </style>
 </head>
 <body>
@@ -308,7 +315,7 @@ const r=await fetch('https://formsubmit.co/ajax/av.cihanay@hotmail.com',{method:
 const j=await r.json();
 if(!r.ok||j.success==='false')throw 0;
 f.reset();st.style.color='var(--acc)';st.textContent='Teşekkürler, mesajınız ulaştı. En kısa sürede dönüş yapacağım.';askAI(q);
-}catch(e){st.style.color='#ff8a8a';st.textContent='Mesaj şu an gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.';}
+}catch(e){st.style.color='#ff8a8a';st.innerHTML=window.fsFail(d);}
 sb.disabled=false;});
 
 const AI_URL='https://avcihanai.av-cihanay.workers.dev';
@@ -376,7 +383,7 @@ d.append('message',hist.length?hist.map(m=>(m.role==='user'?'Ziyaretçi: ':'Asis
 d.append('_subject','Sohbet asistanından yeni talep');d.append('_captcha','false');d.append('_template','table');d.append('_honey','');
 try{const r=await fetch('https://formsubmit.co/ajax/av.cihanay@hotmail.com',{method:'POST',headers:{Accept:'application/json'},body:d});const j=await r.json();if(!r.ok||j.success==='false')throw 0;
 f.remove();add('b',T('Teşekkürler! Talebiniz ulaştı, ofisimiz e-posta ile size dönüş yapacaktır.','Thank you! Your request has been received and our office will reply by email.'))}
-catch(x){b.disabled=false;add('b',T('Gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin veya iletişim formunu kullanın.','Could not send. Please try again shortly or use the contact form.'));
+catch(x){b.disabled=false;add('b',T('Gönderilemedi. Lütfen av.cihanay@hotmail.com adresine e-posta yazın.','Could not send. Please email av.cihanay@hotmail.com.')+(/[?&]debug/.test(location.search)?' ['+window.__fsErr+']':''));
 chips([[T('İletişim formunu açın','Open contact form'),()=>{closeC();const a=document.querySelector('.tabs a[data-go="iletisim"]');a&&a.click()}]])}};
 cm.appendChild(f);cm.scrollTop=cm.scrollHeight}
 document.getElementById('cfab').onclick=openC;cb.onclick=openC;
@@ -409,6 +416,24 @@ av.animate([{transform:'scale(.15)',opacity:0},{transform:'scale(1)',opacity:1}]
 bb.animate([{opacity:0,transform:'translate(-50%,-100%) translateY(8px)'},{opacity:1,transform:'translate(-50%,-100%)'}],{duration:500,delay:800,fill:'both'});
 setTimeout(fly,4600)}catch(e){done()}}
 const iv=setInterval(()=>{if(!document.getElementById('splash')){clearInterval(iv);start()}},120);
+})();
+</script>
+<script>
+/* Form gönderimi: JSON ile gönder, hata nedenini sakla, başarısız olursa e-posta bağlantısı sun */
+(function(){const of=window.fetch.bind(window);
+window.fetch=async function(u,o){
+ if(typeof u==='string'&&u.indexOf('formsubmit.co/ajax/')>-1){
+  try{
+   if(o&&o.body instanceof FormData){const obj={};o.body.forEach((v,k)=>{if(typeof v==='string')obj[k]=v});o=Object.assign({},o,{body:JSON.stringify(obj),headers:{'Content-Type':'application/json',Accept:'application/json'}})}
+   const r=await of(u,o);let j={};try{j=await r.clone().json()}catch(x){}
+   window.__fsErr=(!r.ok||j.success==='false'||j.success===false)?((j&&j.message)||('HTTP '+r.status)):'';
+   return r}
+  catch(e){window.__fsErr='Ağ hatası: '+(e&&e.message||e);throw e}}
+ return of.apply(null,arguments)};
+window.fsFail=function(d){const g=k=>String(d.get(k)||'');
+ const body=encodeURIComponent('Ad: '+g('name')+'\nE-posta: '+g('email')+'\nTelefon: '+g('phone')+'\nKonu: '+g('topic')+'\nAciliyet: '+g('urgency')+'\n\n'+g('message'));
+ let h='Mesajınız şu an sistem üzerinden gönderilemedi. <a href="mailto:av.cihanay@hotmail.com?subject='+encodeURIComponent('Web sitesinden danışmanlık talebi')+'&body='+body+'" style="color:var(--acc)">E-posta uygulamanızla göndermek için tıklayın</a>.';
+ if(/[?&]debug/.test(location.search))h+='<br><small>Ayrıntı: '+String(window.__fsErr||'bilinmiyor').replace(/[<>&]/g,'')+'</small>';return h};
 })();
 </script>
 </body>
