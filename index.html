@@ -436,5 +436,19 @@ window.fsFail=function(d){const g=k=>String(d.get(k)||'');
  if(/[?&]debug/.test(location.search))h+='<br><small>Ayrıntı: '+String(window.__fsErr||'bilinmiyor').replace(/[<>&]/g,'')+'</small>';return h};
 })();
 </script>
+<script>
+/* Form: Cloudflare Worker üzerinden ilet */
+(function(){window.__leadRelay=1;const prev=window.fetch.bind(window),W='https://avcihanai.av-cihanay.workers.dev/lead';
+window.fetch=async function(u,o){
+ if(typeof u==='string'&&u.indexOf('formsubmit.co/ajax/')>-1){
+  const p={};try{if(o&&o.body instanceof FormData)o.body.forEach((v,k)=>{if(typeof v==='string')p[k]=v});else if(o&&typeof o.body==='string')Object.assign(p,JSON.parse(o.body))}catch(e){}
+  try{const r=await prev(W,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
+   let j={};try{j=await r.clone().json()}catch(x){}
+   window.__fsErr=(r.ok&&j.success!=='false')?'':((j&&j.message)||('Worker HTTP '+r.status));
+   return r}
+  catch(e){return prev(u,o)}}
+ return prev.apply(null,arguments)};
+})();
+</script>
 </body>
 </html>
