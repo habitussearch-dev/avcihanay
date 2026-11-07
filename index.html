@@ -315,20 +315,20 @@ const r=await fetch('https://formsubmit.co/ajax/av.cihanay@hotmail.com',{method:
 const j=await r.json();
 if(!r.ok||j.success==='false')throw 0;
 f.reset();st.style.color='var(--acc)';st.textContent='Teşekkürler, mesajınız ulaştı. En kısa sürede dönüş yapacağım.';askAI(q);
-}catch(e){st.style.color='#ff8a8a';st.innerHTML=window.fsFail(d);}
+}catch(e){st.style.color='#ff8a8a';st.innerHTML=window.fsFail(d);askAI(q,true);}
 sb.disabled=false;});
 
 const AI_URL='https://avcihanai.av-cihanay.workers.dev';
 const NEXT='Ofisimiz, formda yazdığınız e-posta adresine dönüş yapacaktır. Daha ayrıntılı değerlendirme için vekâlet verilmesi veya e-posta üzerinden randevu oluşturulması gerekir.';
-async function askAI(q){
-const box=document.getElementById('ai');box.hidden=false;
+async function askAI(q,fail){
+const box=document.getElementById('ai');box.hidden=false;setTimeout(()=>box.scrollIntoView({block:'nearest',behavior:'smooth'}),50);
 const show=(t)=>{box.innerHTML='';if(t){const p=document.createElement('p');p.textContent=t;box.appendChild(p)}
-const n=document.createElement('p');n.className='nx';n.textContent=NEXT;box.appendChild(n);
+if(!fail){const n=document.createElement('p');n.className='nx';n.textContent=NEXT;box.appendChild(n)}
 const m=document.createElement('small');m.textContent='Bu otomatik yanıt genel bilgidir; hukuki tavsiye veya avukat–müvekkil ilişkisi oluşturmaz.';box.appendChild(m)};
 if(AI_URL.includes('YOUR-')){show('');return}
 box.textContent='Mesajınız için kısa bir ön bilgi hazırlanıyor…';
 try{const r=await fetch(AI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(q)});
-const j=await r.json();if(!r.ok||!j.answer)throw 0;show(j.answer)}catch(e){show('')}}
+const j=await r.json();if(!r.ok||!j.answer){window.__aiErr=(j&&(j.detail||j.error))||('HTTP '+r.status);throw 0}show(j.answer)}catch(e){show('');if(/[?&]debug/.test(location.search)){const dd=document.createElement('small');dd.textContent='AI ayrıntı: '+(window.__aiErr||'bağlantı kurulamadı');box.appendChild(dd)}}}
 document.getElementById('enbtn').addEventListener('click',()=>{document.getElementById('tp').value='İngilizce danışmanlık (English consultation)'});
 
 </script>
