@@ -444,7 +444,7 @@ window.fetch=async function(u,o){
   const p={};try{if(o&&o.body instanceof FormData)o.body.forEach((v,k)=>{if(typeof v==='string')p[k]=v});else if(o&&typeof o.body==='string')Object.assign(p,JSON.parse(o.body))}catch(e){}
   try{const r=await prev(W,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
    let j={};try{j=await r.clone().json()}catch(x){}
-   window.__fsErr=(r.ok&&j.success!=='false')?'':((j&&j.message)||('Worker HTTP '+r.status));
+   window.__fsErr=(r.ok&&j.success==='true')?'':((j&&j.message)||('Worker eski sürüm olabilir: /lead cevabı beklenen biçimde değil (HTTP '+r.status+')'));if(!(r.ok&&j.success==='true'))return new Response(JSON.stringify({success:'false',message:window.__fsErr}),{status:502,headers:{'Content-Type':'application/json'}});
    return r}
   catch(e){return prev(u,o)}}
  return prev.apply(null,arguments)};
